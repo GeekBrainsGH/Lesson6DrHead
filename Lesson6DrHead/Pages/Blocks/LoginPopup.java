@@ -2,6 +2,7 @@ package Lesson6DrHead.Pages.Blocks;
 
 
 import Lesson6DrHead.Pages.MainPage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,7 +33,7 @@ public class LoginPopup implements WrapsElement {
     By loginButton = By.xpath("//button[@name='Login']");
     By errorDiv = By.xpath("//div[@class='modal-wr is-open']//div[@class='simplebar-content']//div[@class='error-message']");
 
-
+    @Step("Авторизоваться с данными {login} и {password}")
     public MainPage login(String login, String password) {
         webDriver.findElement(userNameInput).sendKeys(login);
         webDriver.findElement(passwordInput).sendKeys(password);
@@ -46,6 +47,8 @@ public class LoginPopup implements WrapsElement {
     // Элемент, в котором расположен текст загружается сразу, поэтому ожидание по нему не срабатывает (то, что закомментила ниже).
     // Как то упоминать даже чать текста внутри метода кажется ненадежным, так как текст может со временем измениться.
     // Как в такой ситуации можно было бы поступить еще?
+
+    @Step("Проверить наличие сообщения об ошибке {errorMessage}")
     public LoginPopup checkError(String errorMessage) {
         new WebDriverWait(webDriver, 15).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(text(), 'Неверный')]")));
         //new WebDriverWait(webDriver, 15).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='modal-wr is-open']//div[@class='simplebar-content']//div[@class='error-message']")));

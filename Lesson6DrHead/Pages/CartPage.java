@@ -1,5 +1,6 @@
 package Lesson6DrHead.Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,6 +17,7 @@ public class CartPage extends BasePage {
         super(webDriver);
     }
 
+    @Step("Проверить наличие товаров в корзине")
     public CartPage checkProductsInCart(String... productNames) {
         new WebDriverWait(webDriver, 15).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id = 'content']//table[@class = 'cart-table']")));
 
