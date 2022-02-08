@@ -2,6 +2,8 @@ package Lesson6DrHead.Tests;
 
 import Lesson5DrHead.BaseTest;
 import Lesson6DrHead.Pages.MainPage;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +16,7 @@ public class ColorCheckTest extends BaseTest {
     String vendorCode = "121080";
 
     @Test
+    @Severity(SeverityLevel.MINOR)
     @DisplayName("Color switch: positive")
     void colorSwitchPositiveTest() {
         webDriver.get(URL);

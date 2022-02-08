@@ -2,6 +2,8 @@ package Lesson6DrHead.Tests;
 
 import Lesson5DrHead.BaseTest;
 import Lesson6DrHead.Pages.MainPage;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -10,7 +12,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class AddToCartTest extends BaseTest {
 
     @DisplayName("Add to cart: positive")
-    @ParameterizedTest
+    @ParameterizedTest(name = "Add {0} to cart")
+    @Severity(SeverityLevel.BLOCKER)
     @ValueSource(strings = {"Sony MDR-7506", "Sony HT-ZF9"})
     void addToCartTest(String productNames){
 

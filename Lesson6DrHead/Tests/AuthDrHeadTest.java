@@ -3,16 +3,20 @@ package Lesson6DrHead.Tests;
 import Lesson5DrHead.BaseTest;
 import Lesson6DrHead.Pages.Blocks.LoginPopup;
 import Lesson6DrHead.Pages.MainPage;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 @DisplayName("Authorization DrHead")
+
 public class AuthDrHeadTest extends BaseTest {
     String login = "test_202334@mail.ru";
     String password = "123456789n";
     String invalidPassword = "invalidPassword";
 
     @Test
+    @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Authorization DrHead: positive")
     void successfulAuthTest() {
         webDriver.get(URL);
@@ -30,6 +34,7 @@ public class AuthDrHeadTest extends BaseTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     @DisplayName("Authorization DrHead: negative - Invalid password")
     void negativeAuthInvalidPasswordTest() {
 
